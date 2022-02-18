@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TokenViewModel
+
+<div class="container">
+    <form method="get">
+        <div class="pt-5">
+            <label for="staticEmail2" class="visually-hidden" asp-for="MEMBER_ID">MEMBER ID</label>
+            <input type="text" class="form-control" required asp-for="MEMBER_ID" value="">
+
+        </div>
+
+        <div class="pt-5">
+            <label for="staticEmail2" class="visually-hidden" asp-for="CUSTOMER_ID">CUSTOMER_ID</label>
+            <input type="text" class="form-control" required asp-for="CUSTOMER_ID" value="">
+
+        </div>
+
+        <div class="pt-5">
+            <label for="staticEmail2" class="visually-hidden" asp-for="EMPUSH_TOKEN">EMPUSH_TOKEN</label>
+            <input type="text" class="form-control" required asp-for="EMPUSH_TOKEN" value="">
+
+        </div>
+
+        <div class="pt-5">
+            <button type="submit" class="btn btn-primary" asp-controller="Member" asp-action="Update">Token Eşleştir</button>
+        </div>
+    </form>
+
+</div>

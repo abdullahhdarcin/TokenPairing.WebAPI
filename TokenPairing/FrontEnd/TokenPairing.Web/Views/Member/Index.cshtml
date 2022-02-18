@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model TokenViewModel
+
+<div class="container">
+    <form method="get">
+        <div class="pt-5">
+            <label for="staticEmail2" class="visually-hidden" asp-for="MEMBER_ID">MEMBER ID</label>
+            <input type="text" class="form-control" required asp-for="MEMBER_ID" value="">
+        </div>
+        <div class="pt-5">
+            <button type="submit" class="btn btn-primary" asp-controller="Member" asp-action="Response">Token Sorgula</button>
+        </div>
+    </form>
+
+</div>
+
+

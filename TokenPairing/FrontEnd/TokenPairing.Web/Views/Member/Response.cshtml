@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Response";
+}
+
+@model IEnumerable<TokenViewModel>
+
+<div>
+    <input type="button" value="Yeni Member ID Sorgula" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Member")'" />
+    <hr />
+</div>
+
+@if (Model.Count() < 1)
+{
+    <div class="card text-center">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Member Sorgulanırken Hata Oluştu</h5>
+            <p class="card-text">Sorgulanılan Member ID'ye ait herhangi bir token bulunmamaktadır.</p>
+            <input type="button" value="Anasayfaya Dön" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Home")'" />
+        </div>
+        <div class="card-footer text-muted">
+        </div>
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TOKEN</th>
+                <th>EMPUSH_APP_ID</th>
+                <th>CUSTOMER_ID</th>
+                <th>MEMBER_ID</th>
+                <th>STATUS</th>
+                <th>CREATED</th>
+                <th>DS_LAST_CHANGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EMPUSH_TOKEN</td>
+                    <td>@item.EMPUSH_APP_ID</td>
+                    <td>@item.CUSTOMER_ID</td>
+                    <td>@item.MEMBER_ID</td>
+                    <td>@item.STATUS</td>
+                    <td>@item.CREATED.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@item.DS_LAST_CHANGE.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<style>
+    .table {
+        width: 100%;
+    }
+
+    td {
+        word-break: break-word;
+    }
+
+    th {
+        width: 100%;
+    }
+</style>
